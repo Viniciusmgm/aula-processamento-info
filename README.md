@@ -2,7 +2,7 @@
 
 <h1 align="center">Aula de Processamento de Informação <img align="top" src="https://img.icons8.com/color/2x/python.png" width="40" height="40"/></h1>
 <p>
-  Projeto e exercícios realizados durante a aula de Processamento de Informação da <a href="https://www.ufabc.edu.br/">Universidade Federal do ABC</a> <br>
+  Projeto e Exercícios realizados durante a aula de Processamento de Informação da <a href="https://www.ufabc.edu.br/">Universidade Federal do ABC</a> <br>
 </p>
 
 <!--Linguagens e Ferramentes utilizadas-->
