@@ -32,6 +32,17 @@ main()
 
 #Exercício 2
 """
+O simbolo de igual(=) é usado para atribuição de um valor a uma variável. Já o simbolo de igualdade(==) é
+utilizado para fazer a comparação entre 2 valores, ou variáveis
 
+Exemplo:
+a) Simbolo de = :
+valor = 8
+print(valor) #imprime o número 8, que foi atribuido a variável valor
+
+b) Simbolo de == :
+valor1 = 5
+valor2 = 6
+print(valor1 == valor2) #Imprime o valor booleano False, pois o valor1 que é 5, não é igual ao valor2 que é 6
 """
 
