@@ -1,8 +1,8 @@
 #Lista 1
 
 #Exercício 1
-#a)Algoritmo:
 """
+a)Algoritmo:
 Entrada: posições de x e y da flecha
 Saída: posição da flecha no alvo 
 inicio (dentro do método main())
@@ -26,10 +26,8 @@ inicio (dentro do método main())
   fim do método posição
   imprime região na tela
 fim
-"""
 
-#b)Código em Python:
-"""
+b)Código em Python:
 def posicao(dist):
   if(dist <= 1):
     return "A flecha atingiu a região A"
