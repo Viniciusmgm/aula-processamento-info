@@ -49,6 +49,10 @@ print(valor1 == valor2) #Imprime o valor booleano False, pois o valor1 que é 5,
 """
 
 #Exercício 3
+"""
+a)
+b)
+"""
 
 #Exercício 4
 """
