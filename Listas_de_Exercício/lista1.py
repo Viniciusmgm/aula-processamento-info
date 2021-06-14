@@ -45,7 +45,7 @@ def posicao(dist):
 def main():
   x = float(input("Qual a posição x da flecha? "))
   y = float(input("Qual a posição y da flecha? "))
-  dist = ((x - 0)) + ((y ** 2)) ** 0.5
+  dist = ((x ** 2) + (y ** 2)) ** 0.5
   print(posicao(dist))
 main()
 """
