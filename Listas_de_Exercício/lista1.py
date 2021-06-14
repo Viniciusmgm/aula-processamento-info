@@ -68,8 +68,23 @@ print(valor1 == valor2) #Imprime o valor booleano False, pois o valor1 que é 5,
 
 #Exercício 3
 """
-a)
-b)
+a)Algoritmo:
+Entrada:
+Saída:
+inicio (dentro do método main)
+
+fim
+
+b)Código em Python:
+def main():
+  pos_car = float(input("Qual a posição do carro na rodovia? ")) 
+  recarga1 = float(input("Qual a posição do ponto de recarga na rodovia? "))
+  recarga2 = float(input("Qual a posição do ponto de recarga na rodovia? "))
+  recarga3 = float(input("Qual a posição do ponto de recarga na rodovia? "))
+
+
+main()
+
 """
 
 #Exercício 4
