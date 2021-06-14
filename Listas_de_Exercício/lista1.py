@@ -72,7 +72,29 @@ a)Algoritmo:
 Entrada:
 Saída:
 inicio (dentro do método main)
-
+  recebe posição do carro 
+  recebe posição ponto de recarga1
+  recebe posição ponto de recarga2
+  recebe posição ponto de recarga3
+  recebe autonomia do carro
+  criação do método distância
+  chamada do método distância
+    ordenação dos pontos de recargas em ordem crescente
+    se a posição do ponto de recarga mais distante menos a posição do carro for menor que a autonomia
+      retorna distância do ponto de recarga mais distante até a posição do carro
+    se a posição do segundo ponto de recarga mais distante menos a posição do carro for menor que a autonomia
+      retorna distância do segundo ponto de recarga mais distante até a posição do carro 
+    senão
+      retorna distância do ponto de recarga mais próximo até a posição do carro
+  crição do método ponto_recarga
+  chamada ponto_recarga
+    se a distância mais a posição do carro for igual a posição do ponto de recarga1
+      retorna ponto de recarga1 
+    se a distância mais a posição do carro for igual a posição do ponto de recarga2
+      retorna ponto de recarga2 
+    senão
+      retorna ponto de recarga3
+  imprime na tela o ponto de recarga desejado e sua distância do carro
 fim
 
 b)Código em Python:
@@ -86,14 +108,24 @@ def ponto_recarga(dist,recargas):
     return "recarga 3"
 
 #Retorna a distância do carro do ponto de recarga mais longe possivelde se chegar
+#Identifica qual o ponto de recarga
+def ponto_recarga(dist,pos_car,aux):
+  if(dist + pos_car) == aux[0]:
+    return "recarga 1"
+  elif(dist + pos_car) == aux[1]:
+    return "recarga 2"
+  else:
+    return "recarga 3"
+
+#Retorna s distância do ponto de recarga desejado do carro
 def dist_recarga(pos_car,recargas,autono):
   recargas.sort()
-  if((recargas[2] - pos_car) <= autono):
-    return (recargas[2] - pos_car)
-  elif((recargas[1] - pos_car) <= autono):
-    return (recargas[1] - pos_car)
+  if(recargas[2] - pos_car) <= autono :
+    return recargas[2] - pos_car
+  elif(recargas[1] - pos_car) <= autono:
+    return recargas[1] - pos_car
   else:
-    return (recargas[0] - pos_car)
+    return recargas[0] - pos_car
 
 def main():
   pos_car = float(input("Qual a posição do carro na rodovia? ")) 
@@ -107,7 +139,7 @@ def main():
   aux = [recarga1, recarga2, recarga3]
   dist = dist_recarga(pos_car,recargas,autono)
 
-  print("O ponto de " + ponto_recarga(dist,aux) + " que está a " + str(dist) + " km é o mais longe possivel de se alcançar")
+  print("O ponto de " + ponto_recarga(dist,pos_car,aux) + " que está a " + str(dist) + " km é o mais longe possivel de se alcançar")
 
 main()
 """
