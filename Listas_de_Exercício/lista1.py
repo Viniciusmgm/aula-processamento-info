@@ -76,15 +76,40 @@ inicio (dentro do método main)
 fim
 
 b)Código em Python:
+#Identifica qual o ponto de recarga, a partir da distância 
+def ponto_recarga(dist,recargas):
+  if(dist == recargas[0]):
+    return "recarga 1"
+  elif(dist == recargas[1]):
+    return "recarga 2"
+  else:
+    return "recarga 3"
+
+#Retorna a distância do carro do ponto de recarga mais longe possivelde se chegar
+def dist_recarga(pos_car,recargas,autono):
+  recargas.sort()
+  if((recargas[2] - pos_car) <= autono):
+    return (recargas[2] - pos_car)
+  elif((recargas[1] - pos_car) <= autono):
+    return (recargas[1] - pos_car)
+  else:
+    return (recargas[0] - pos_car)
+
 def main():
   pos_car = float(input("Qual a posição do carro na rodovia? ")) 
-  recarga1 = float(input("Qual a posição do ponto de recarga na rodovia? "))
-  recarga2 = float(input("Qual a posição do ponto de recarga na rodovia? "))
-  recarga3 = float(input("Qual a posição do ponto de recarga na rodovia? "))
+  recarga1 = float(input("Qual a posição do ponto de recarga1 na rodovia? "))
+  recarga2 = float(input("Qual a posição do ponto de recarga2 na rodovia? "))
+  recarga3 = float(input("Qual a posição do ponto de recarga3 na rodovia? "))
+  autono = float(input("Qual a autonomia do seu veiculo? "))
 
+  recargas = [recarga1, recarga2, recarga3]
+  #aux é uma substituta, pois recargas se torna lista ordenada, então é de dificil identificação de qual o ponto de recarga desejado
+  aux = [recarga1, recarga2, recarga3]
+  dist = dist_recarga(pos_car,recargas,autono)
+
+  print("O ponto de " + ponto_recarga(dist,aux) + " que está a " + str(dist) + " km é o mais longe possivel de se alcançar")
 
 main()
-
 """
 
 #Exercício 4
