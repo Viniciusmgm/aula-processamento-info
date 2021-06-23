@@ -14,14 +14,16 @@ diversos)
 
 import datetime
 
-def compra(limite, fatura):
+def compra(limite, fatura,estat):
   valor = float(input("Qual o valor da compra? "))
+  categoria = input("|1 - Supermercado \n|2 - Entretenimento \n|3 - Diversos \nDe qual das categorias apresentadas é a compra? ")
+  estat = estatisticas(categoria,estat)
   if valor <= limite:
     limite -= valor
     fatura += valor
   else:
     print("Compra não efetuada, limite insuficiente")
-  return limite, fatura
+  return limite, fatura, estat
 
 def aumenta_limite(senha_correta, senha_bloqueada, bloqueio):
   if (senha_bloqueada and (datetime.datetime.now() - bloqueio).seconds < 30):
@@ -40,6 +42,18 @@ def aumenta_limite(senha_correta, senha_bloqueada, bloqueio):
       print("Senha incorreta, tentativas esgotadas")
       return 0, datetime.datetime.now()
 
+def estatisticas(categoria,estat):
+  estat_aux = [0,0,0]
+  if(categoria == "1"):
+    estat_aux[0] += 1
+  elif(categoria == "2"):
+    estat_aux[1] += 1
+  else:
+    estat_aux[2] += 1
+  estat[0] = (estat_aux[0] / sum(estat_aux)) * 100
+  estat[1] = (estat_aux[1] / sum(estat_aux)) * 100
+  estat[2] = (estat_aux[2] / sum(estat_aux)) * 100
+  return estat
 
 def main():
   #limite_inicial = 1000
@@ -49,12 +63,13 @@ def main():
   fatura = 0
   senha_bloqueada = False
   bloqueio = datetime.datetime.now()
+  estat = [0,0,0]
 
-  opcao = input("1 - Compra|2 - Consultar limite|3 - Pagar fatura|4 - Aumentar limite|0 - Sair:\n")
+  opcao = input("|1 - Compra \n|2 - Consultar limite \n|3 - Pagar fatura \n|4 - Aumentar limite \n|5 - Estatísticas \n|0 - Sair \n Escolha alguma das opções apresentadas acima: ")
 
   while opcao!="0":
     if opcao == "1":
-      limite, fatura = compra(limite, fatura)
+      limite, fatura, estat = compra(limite, fatura, estat)
     elif opcao == "2":
       print("Seu limite restante é " + str(limite))
     elif opcao == "3":
@@ -69,7 +84,9 @@ def main():
         senha_bloqueada = False
       limite += aumento
       limite_inicial += aumento
+    elif opcao == "5":
+      print("\nSeus gastos foram: \n{}% com supermercado \n{}% com entreterimento \n{}% com diversos".format(estat[0],estat[1],estat[2]))
 
-    opcao = input("1 - Compra|2 - Consultar limite|3 - Pagar fatura|4 - Aumentar limite|0 - Sair:\n")  
+    opcao = input("|1 - Compra \n|2 - Consultar limite \n|3 - Pagar fatura \n|4 - Aumentar limite \n|5 - Estatísticas \n|0 - Sair \n Escolha alguma das opções apresentadas acima: ")  
 
 main()
