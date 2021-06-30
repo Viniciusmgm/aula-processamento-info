@@ -36,3 +36,52 @@ main()
 """
 
 #Exercício 2
+"""
+a)
+"""
+
+#Exercício 3
+"""
+def tabuada(num):
+  for j in range(1,11):
+    print("\n")
+    for i in range(2,num+1):
+      print("{} x {} = {}".format(i, j, (i*j)), end = " ")
+
+def main():
+  num = int(input("Digite um número inteiro, para saber a tabuada até esse número: "))
+  tabuada(num)
+
+main()
+"""
+
+#Exercício 4
+"""
+def vezes(conceito,vezes_conceito):
+  conceito = conceito.lower()
+  if conceito == "a":
+    vezes_conceito["A"] += 1
+  elif conceito == "b":
+    vezes_conceito["B"] += 1
+  elif conceito == "c":
+    vezes_conceito["C"] += 1
+  elif conceito == "d":
+    vezes_conceito["D"] += 1
+  elif conceito == "f":
+    vezes_conceito["F"] += 1
+  else:
+    vezes_conceito["O"] += 1
+
+def main():
+  continuar = "s"
+  vezes_conceito = dict(A = 0, B = 0, C = 0, D = 0, F = 0, O = 0)
+  while continuar == "s":
+    conceito = input("Digite o conceito dos alunos: ")
+    continuar = input("Deseja continuar colocando conceitos(s/n)? ")
+    vezes(conceito,vezes_conceito)
+  print("\nAs frequências com que os conceitos ocorreram foram: ")
+  for i in vezes_conceito:
+    print("{} = {} vezes".format(i,vezes_conceito[i]))
+
+main()
+"""
