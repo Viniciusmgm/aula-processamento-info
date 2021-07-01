@@ -15,21 +15,21 @@ def pontuacao(tentativas,ponto_regiao):
 
 def posicao(dist, ponto_regiao):
   if(dist <= 1):
-    return ponto_regiao[0]
+    return ponto_regiao["a"]
   elif(dist <= 2):
-    return ponto_regiao[1]
+    return ponto_regiao["b"]
   elif(dist <= 3):
-    return ponto_regiao[2]
+    return ponto_regiao["c"]
   elif(dist <= 4):
-    return ponto_regiao[3]
+    return ponto_regiao["d"]
   elif(dist <= 5):
-    return ponto_regiao[4]
+    return ponto_regiao["e"]
   else:
-    return ponto_regiao[5]
+    return ponto_regiao["f"]
 
 def main():
   tentativas = int(input("Quantas tentativas deseja realizar? "))
-  ponto_regiao = 10, 8, 6, 4, 2, 0
+  ponto_regiao = dict(a = 10, b = 8, c = 6, d = 4, e = 2, f = 0)
   print("Sua pontuação total foi de {} pontos ".format(pontuacao(tentativas,ponto_regiao)))
   
 main()
@@ -37,7 +37,27 @@ main()
 
 #Exercício 2
 """
-a)
+a)Exemplo for e while:
+#Exemplo com while:
+import time
+
+num = int(input("De qual número quer começar a contagem regressiva ? "))
+while num > 0:
+  print(num)
+  time.sleep(1)
+  num -= 1
+print("Parabéns !!!")
+
+#Exemplo com for:
+import time
+
+num = int(input("De qual número quer começar a contagem regressiva ? "))
+for i in range(num, 0, -1):
+  print(i)
+  time.sleep(1)
+print("Parabéns !!!")
+
+b) While é mais adequado quando não se sabe quantas vezes o laço vai se repetir, já o for é mais adequado quando se tem uma noção maior ou uma certeza de quantas vezes o laço vai se repetir
 """
 
 #Exercício 3
