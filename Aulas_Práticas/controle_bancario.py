@@ -43,6 +43,7 @@ def aumenta_limite(senha_correta, senha_bloqueada, bloqueio):
       return 0, datetime.datetime.now()
 
 def estatisticas(categoria,estat):
+  #A posição 0 se refere ao supermercado, a 1 à entreterimento e a 2 à diversos
   estat_aux = [0,0,0]
   if(categoria == "1"):
     estat_aux[0] += 1
