@@ -1,43 +1,58 @@
 #Exercício 1
-#Ainda falta terminar
 """
 import random
 
-def pontuacao(tentativas,ponto_regiao):
+#gera as coordenadas, calcula a distância e contabiliza os pontos
+def pontuacao(tentativas, ponto_regiao):
   pontos = 0
   while tentativas > 0:
     x = random.uniform(-5,5)
     y = random.uniform(-5,5)
     dist = ((x ** 2) + (y ** 2)) ** 0.5
-    pontos += posicao(dist, ponto_regiao)
+    pontos_rodada, regiao_atingida = posicao(dist, ponto_regiao)
+    pontos += pontos_rodada
     tentativas -= 1
-  return pontos
+  return pontos, regiao_atingida
 
+#verifica a regiao atingida
 def posicao(dist, ponto_regiao):
   if(dist <= 1):
-    return ponto_regiao["a"]
+    return ponto_regiao["a"], "A"
   elif(dist <= 2):
-    return ponto_regiao["b"]
+    return ponto_regiao["b"], "B"
   elif(dist <= 3):
-    return ponto_regiao["c"]
+    return ponto_regiao["c"], "C"
   elif(dist <= 4):
-    return ponto_regiao["d"]
+    return ponto_regiao["d"], "D"
   elif(dist <= 5):
-    return ponto_regiao["e"]
+    return ponto_regiao["e"], "E"
   else:
-    return ponto_regiao["f"]
+    return ponto_regiao["f"], "fora do alvo"
 
 def main():
   tentativas = int(input("Quantas tentativas deseja realizar? "))
+  tentativas_espec = 0
   ponto_regiao = dict(a = 10, b = 8, c = 6, d = 4, e = 2, f = 0)
-  print("Sua pontuação total foi de {} pontos ".format(pontuacao(tentativas,ponto_regiao)))
-  
+  pontos, regiao_atingida = pontuacao(tentativas,ponto_regiao)
+  regiao_atingida = ""
+  print("Sua pontuação total foi de {} pontos ".format(pontos))
+
+  regiao_espec = input("Deseja acertar alguma região especifíca (s/n)? ")
+  if regiao_espec == 's':
+    regiao_espec = input("Qual seria essa região? ")
+    #realiza a contagem das tentativas 
+    while regiao_espec.upper() != regiao_atingida:
+      pontos, regiao_atingida = pontuacao(tentativas,ponto_regiao)
+      tentativas_espec += 1
+    
+    print("A região {} foi atingida após {} tentativa(s)".format(regiao_espec.upper(), tentativas_espec))
+
 main()
 """
 
 #Exercício 2
 """
-a)Exemplo for e while:
+a)Exemplo de contagem regressiva com for e while:
 #Exemplo com while:
 import time
 
