@@ -73,6 +73,28 @@ for i in range(num, 0, -1):
 print("Parabéns !!!")
 
 b) While é mais adequado quando não se sabe quantas vezes o laço vai se repetir, já o for é mais adequado quando se tem uma noção maior ou uma certeza de quantas vezes o laço vai se repetir
+#Exemplo com for:
+print("\t\t\t|----------Média do Aluno----------|\n")
+qtn_notas = int(input("Quantas notas deseja colocar? "))
+soma = 0
+for i in range(qtn_notas):
+  num = float(input("Digite a nota: "))
+  soma += num
+media = soma / qtn_notas
+print("Sua média foi: {}".format(round(media,2)))
+
+#Exemplo com while:
+print("\t\t\t|----------Média do Aluno----------|\n")
+continuar = input("Deseja continuar inserindo notas (s/n)? ")
+soma = 0
+qtn_notas = 0
+while continuar.lower() == "s":
+  num = float(input("Digite a nota: "))
+  soma += num
+  qtn_notas += 1
+  continuar = input("Deseja continuar inserindo notas (s/n)? ")
+media = soma / qtn_notas
+print("Sua média foi: {}".format(round(media,2)))
 """
 
 #Exercício 3
