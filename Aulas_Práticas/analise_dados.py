@@ -19,7 +19,10 @@ def dissimilaridade(serie_temp1, serie_temp2, janela):
   serie_temp2 = norm_amplitude(serie_temp2)
   serie_temp2 = norm_translacao(serie_temp2)
   serie_temp2 = discretiza(serie_temp2, janela)
-  dissim = "formula aqui"
+  somatoria = 0
+  for i in range(len(serie_temp1)):
+    somatoria += (serie_temp1[i] - serie_temp2[i]) ** 2
+  dissim = somatoria ** 0.5
   print("A dissimilaridade entre as séries é {}".format(dissim))
 
 
