@@ -29,9 +29,11 @@ main()
 """
 
 #Exercício 2
+"""
 def main():
   
 main()
+"""
 
 #Exercício 3
 """
